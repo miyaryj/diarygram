@@ -46,3 +46,4 @@ end
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'sprockets'
+gem 'httpclient'

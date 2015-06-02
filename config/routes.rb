@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  get "users/oauth" => "users#oauth"
-  get "users/callback" => "users#callback"
   resources :users, only: ['show']
+  get "instagram/oauth" => "instagram#oauth"
+  get "instagram/callback" => "instagram#callback"
+  get "instagram/index" => "instagram#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,0 +1,8 @@
+<h1>Instagram#index</h1>
+<p><%= @username %></p>
+
+<ul>
+  <% @page.each do |item| %>
+    <li><%= image_tag(item.images.thumbnail.url) %></li>
+  <% end %>
+</ul>

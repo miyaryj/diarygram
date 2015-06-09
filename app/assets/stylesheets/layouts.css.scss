@@ -1,0 +1,139 @@
+@import "bootstrap";
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* universal */
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 2.5em;
+  letter-spacing: -2px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: #999;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+footer {
+  margin-top: 45px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-top: 1px solid #eaeaea;
+  color: #999;
+  a {
+    color: #555;
+    &:hover {
+      color: #222;
+    }
+  }
+  small {
+    float: right;
+  }
+}
+
+/* header */
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.8em;
+  color: #667;
+  letter-spacing: -1px;
+  padding-top: 12px;
+  padding-bottom: 10px;
+  font-weight: light;
+  line-height: 1;
+}
+
+#logo:hover {
+  color: #99a;
+  text-decoration: none;
+}
+
+/* forms */
+
+input, textarea, select, .uneditable-input {
+
+}
+
+.actions {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+#error_explanation {
+  color: #e00;
+}
+
+.field {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  label {
+    text-align: left;
+  }
+}
+
+/* Custom */
+
+.container {
+  max-width: 960px;
+}
+
+#notice {
+  margin-top: 30px;
+}
+
+table {
+  text-align: left;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 40px;
+  .btn {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}

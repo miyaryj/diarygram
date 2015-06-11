@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150521075601) do
+ActiveRecord::Schema.define(version: 20150611110950) do
+
+  create_table "entries", force: :cascade do |t|
+    t.string   "text"
+    t.date     "date"
+    t.integer  "user_id"
+    t.string   "image_url"
+    t.integer  "instagram_media_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

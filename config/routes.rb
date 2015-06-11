@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :users, only: ['show']
+  resources :entries
   get "instagram/oauth" => "instagram#oauth"
   get "instagram/callback" => "instagram#callback"
   get "instagram/index" => "instagram#index"

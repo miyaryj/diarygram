@@ -4,10 +4,11 @@
 <ul class="list-group">
   <% @instagram_medias.each do |media| %>
     <li class="list-group-item">
-      <%= image_tag(media.images.thumbnail.url) %><br/>
-      <%= media.id %><br/>
-      <%= media.caption.text if media.caption %><br/>
-      <%= Time.at(media.created_time.to_i).to_s %>
+      <%= link_to(new_entry_path(instagram_media_id: media.id)) do %>
+        <%= image_tag(media.images.thumbnail.url) %><br/>
+        <%= media.caption.text if media.caption %><br/>
+        <%= Time.at(media.created_time.to_i).to_s %>
+      <% end %>
     </li>
   <% end %>
 </ul>

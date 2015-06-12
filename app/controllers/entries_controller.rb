@@ -15,6 +15,14 @@ class EntriesController < ApplicationController
   # GET /entries/new
   def new
     @entry = Entry.new
+
+    if params[:date].present?
+      @date = Date.parse(params[:date])
+    else
+      @date = Date.today
+    end
+
+    @instagram_media_id = params[:instagram_media_id]
   end
 
   # GET /entries/1/edit

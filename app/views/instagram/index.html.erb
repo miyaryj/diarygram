@@ -1,8 +1,13 @@
 <h1>Instagram#index</h1>
-<p><%= @username %></p>
+<h3><%= @instagram_username %></h3>
 
-<ul>
-  <% @page.each do |item| %>
-    <li><%= image_tag(item.images.thumbnail.url) %></li>
+<ul class="list-group">
+  <% @instagram_medias.each do |media| %>
+    <li class="list-group-item">
+      <%= image_tag(media.images.thumbnail.url) %><br/>
+      <%= media.id %><br/>
+      <%= media.caption.text if media.caption %><br/>
+      <%= Time.at(media.created_time.to_i).to_s %>
+    </li>
   <% end %>
 </ul>

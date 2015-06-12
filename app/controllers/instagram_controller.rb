@@ -4,10 +4,7 @@ class InstagramController < ApplicationController
   before_action :sign_in_to_instagram, only: [:index]
 
   def index
-    client = Instagram.client(access_token: session[:access_token])
-    user = client.user
-    @username = user.username
-    @page = client.user_recent_media(:self)
+    @instagram_medias = @client.user_recent_media(:self)
   end
 
   def oauth
@@ -17,11 +14,21 @@ class InstagramController < ApplicationController
   def callback
     response = Instagram.get_access_token(params[:code], redirect_uri: OAUTH_CALLBACK_URL)
     session[:access_token] = response.access_token
+
+    sign_in_to_instagram
+    redirect_to(action: :index)
   end
 
   private
 
   def sign_in_to_instagram
     oauth unless session[:access_token]
+
+    @client = Instagram.client(access_token: session[:access_token])
+    begin
+      @instagram_username = @client.user.username
+    rescue
+      oauth
+    end
   end
 end

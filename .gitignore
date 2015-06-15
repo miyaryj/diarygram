@@ -16,5 +16,6 @@
 !/log/.keep
 /tmp
 
-# Ignore RVM config
-.rvmrc
+# Ignore ruby config
+.ruby-version
+.ruby-gemset

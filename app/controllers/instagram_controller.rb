@@ -22,13 +22,13 @@ class InstagramController < ApplicationController
   private
 
   def sign_in_to_instagram
-    oauth unless session[:access_token]
+    return oauth unless session[:access_token]
 
     @client = Instagram.client(access_token: session[:access_token])
     begin
       @instagram_username = @client.user.username
-    rescue
-      oauth
+    rescue Instagram::BadRequest
+      return oauth
     end
   end
 end

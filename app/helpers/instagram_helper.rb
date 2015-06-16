@@ -24,6 +24,10 @@ module InstagramHelper
     client.user_recent_media(:self)
   end
 
+  def instagram_media(id)
+    client.media_item(id)
+  end
+
   private
 
   def client

@@ -12,23 +12,17 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :text %><br>
-    <%= f.text_field :text %>
-  </div>
-  <div class="field">
     <%= f.label :date %><br>
     <%= f.text_field :date, value: @date.to_s %>
   </div>
-  <div class="field">
-    <%= f.label :image_url %><br>
-    <%= f.text_field :image_url %>
-  </div>
-  <div class="field">
-    <%= f.label :instagram_media_id %><br>
-    <%= f.text_field :instagram_media_id, value: @instagram_media_id %>
-  </div>
+
+  <%= image_tag(@instagram_media.images.thumbnail.url) %>
+  <%= @instagram_media.caption.text if @instagram_media.caption %>
 
   <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :instagram_media_id, value: @instagram_media_id %>
+  <%= f.hidden_field :image_url, value: @instagram_media.images.standard_resolution.url %>
+  <%= f.hidden_field :text, value: @instagram_media.caption.text if @instagram_media.caption %>
 
   <div class="actions">
     <%= f.submit %>

@@ -1,3 +1,5 @@
+include InstagramHelper
+
 class EntriesController < ApplicationController
   before_action :set_entry, only: [:show, :edit, :update, :destroy]
 
@@ -23,6 +25,7 @@ class EntriesController < ApplicationController
     end
 
     @instagram_media_id = params[:instagram_media_id]
+    @instagram_media = instagram_media(@instagram_media_id)
   end
 
   # GET /entries/1/edit

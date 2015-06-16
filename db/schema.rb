@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 20150611110950) do
     t.string   "date"
     t.integer  "user_id"
     t.string   "image_url"
+    t.string   "thumbnail_url"
+    t.string   "media_url"
     t.string   "instagram_media_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false

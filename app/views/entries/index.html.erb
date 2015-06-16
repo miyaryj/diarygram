@@ -9,6 +9,8 @@
       <th>Date</th>
       <th>User</th>
       <th>Image url</th>
+      <th>Thumbnail url</th>
+      <th>Media url</th>
       <th>Instagram media</th>
       <th colspan="3"></th>
     </tr>
@@ -21,6 +23,8 @@
         <td><%= entry.date %></td>
         <td><%= entry.user_id %></td>
         <td><%= entry.image_url %></td>
+        <td><%= entry.thumbnail_url %></td>
+        <td><%= entry.media_url %></td>
         <td><%= entry.instagram_media_id %></td>
         <td><%= link_to 'Show', entry %></td>
         <td><%= link_to 'Edit', edit_entry_path(entry) %></td>

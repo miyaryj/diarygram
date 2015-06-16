@@ -22,6 +22,8 @@
   <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.hidden_field :instagram_media_id, value: @instagram_media_id %>
   <%= f.hidden_field :image_url, value: @instagram_media.images.standard_resolution.url %>
+  <%= f.hidden_field :thumbnail_url, value: @instagram_media.images.thumbnail.url %>
+  <%= f.hidden_field :media_url, value: @instagram_media.link %>
   <%= f.hidden_field :text, value: @instagram_media.caption.text if @instagram_media.caption %>
 
   <div class="actions">

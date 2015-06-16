@@ -80,6 +80,6 @@ class EntriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def entry_params
-      params.require(:entry).permit(:text, :date, :user_id, :image_url, :instagram_media_id)
+      params.require(:entry).permit(:text, :date, :user_id, :image_url, :thumbnail_url, :media_url, :instagram_media_id)
     end
 end

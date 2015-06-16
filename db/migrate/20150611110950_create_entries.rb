@@ -5,6 +5,8 @@ class CreateEntries < ActiveRecord::Migration
       t.string :date
       t.integer :user_id
       t.string :image_url
+      t.string :thumbnail_url
+      t.string :media_url
       t.string :instagram_media_id
 
       t.timestamps null: false

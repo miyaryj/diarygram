@@ -18,7 +18,7 @@ class InstagramController < ApplicationController
     session[:access_token] = response.access_token
 
     sign_in_to_instagram
-    redirect_to(action: :index)
+    redirect_back_instagram
   end
 
   private

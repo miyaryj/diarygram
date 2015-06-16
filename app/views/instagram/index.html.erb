@@ -4,7 +4,7 @@
 <ul class="list-group">
   <% @instagram_medias.each do |media| %>
     <li class="list-group-item">
-      <%= link_to(new_entry_path(instagram_media_id: media.id)) do %>
+      <%= link_to(action_to_continue.merge(instagram_media_id: media.id)) do %>
         <%= image_tag(media.images.thumbnail.url) %><br/>
         <%= media.caption.text if media.caption %><br/>
         <%= Time.at(media.created_time.to_i).to_s %>

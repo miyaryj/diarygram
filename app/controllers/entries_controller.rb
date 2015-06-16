@@ -1,7 +1,9 @@
+include EntriesHelper
 include InstagramHelper
 
 class EntriesController < ApplicationController
   before_action :set_entry, only: [:show, :edit, :update, :destroy]
+  before_action :clear_action_to_continue, only: [:new, :edit]
 
   # GET /entries
   # GET /entries.json
@@ -16,6 +18,11 @@ class EntriesController < ApplicationController
 
   # GET /entries/new
   def new
+    unless params[:instagram_media_id].present?
+      store_action_to_continue(controller: :entries, action: :new)
+      return redirect_to(controller: :instagram, action: :index)
+    end
+
     @entry = Entry.new
 
     if params[:date].present?

@@ -15,7 +15,7 @@ module InstagramHelper
     session[:return_to_after_instagram] = request.url
   end
 
-  def redirect_back_instagram(default)
+  def redirect_back_instagram(default: {action: :index})
     redirect_to(session[:return_to_after_instagram] || default)
     session.delete(:return_to_after_instagram)
   end

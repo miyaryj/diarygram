@@ -1,10 +1,12 @@
+include InstagramHelper
+
 class InstagramController < ApplicationController
   OAUTH_CALLBACK_URL = 'http://localhost:3000/instagram/callback'
 
   before_action :sign_in_to_instagram, only: [:index]
 
   def index
-    @instagram_medias = @client.user_recent_media(:self)
+    @instagram_medias = instagram_medias
   end
 
   def oauth
@@ -22,13 +24,9 @@ class InstagramController < ApplicationController
   private
 
   def sign_in_to_instagram
-    return oauth unless session[:access_token]
-
-    @client = Instagram.client(access_token: session[:access_token])
-    begin
-      @instagram_username = @client.user.username
-    rescue Instagram::BadRequest
-      return oauth
+    unless signed_in_to_instagram?
+      store_location_instagram
+      return oauth unless session[:access_token]
     end
   end
 end

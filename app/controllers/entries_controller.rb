@@ -37,6 +37,18 @@ class EntriesController < ApplicationController
 
   # GET /entries/1/edit
   def edit
+    if params[:date].present?
+      @date = Date.parse(params[:date])
+    else
+      @date = Date.parse(@entry.date)
+    end
+
+    if params[:instagram_media_id].present?
+      @instagram_media_id = params[:instagram_media_id]
+    else
+      @instagram_media_id = @entry.instagram_media_id
+    end
+    @instagram_media = instagram_media(@instagram_media_id)
   end
 
   # POST /entries

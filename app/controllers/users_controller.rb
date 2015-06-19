@@ -1,14 +1,18 @@
 require 'instagram'
 
+include ApplicationHelper
 include EntriesHelper
 
 class UsersController < ApplicationController
   before_action :set_user, only: [:show]
 
   def timeline
+    current_tab(:timeline)
   end
 
   def show
+    current_tab(:calendar)
+
     if params[:start_date].present?
       date_of_month = Date.parse(params[:start_date])
     else

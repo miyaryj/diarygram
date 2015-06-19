@@ -1,7 +1,8 @@
-<footer class="footer">
-  <small>
-    Powered by
-    <a href="http://rubyonrails.org/">Ruby on Rails</a> and
-    <a href="http://aws.amazon.com/jp/elasticbeanstalk/">AWS Elastic Beanstalk</a>
-  </small>
-</footer>
+<ul class="nav nav-pills nav-justified">
+  <li role="presentation" class="<%= 'active' if current_tab?(:timeline) %>">
+    <%= link_to('Timeline', root_path) %>
+  </li>
+  <li role="presentation" class="<%= 'active' if current_tab?(:calendar) %>">
+    <%= link_to('Calendar', user_path(current_user.id)) %>
+  </li>
+</ul>

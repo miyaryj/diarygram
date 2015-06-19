@@ -5,6 +5,9 @@ include EntriesHelper
 class UsersController < ApplicationController
   before_action :set_user, only: [:show]
 
+  def timeline
+  end
+
   def show
     if params[:start_date].present?
       date_of_month = Date.parse(params[:start_date])

@@ -19,6 +19,14 @@ module EntriesHelper
   end
 
   def entries_calendar(entries)
-    Hash[entries.map {|entry| [entry.date, entry]}]
+    hash = {}
+    entries.each do |entry|
+      if hash.has_key?(entry.date)
+        hash[entry.date] << entry
+      else
+        hash[entry.date] = [entry]
+      end
+    end
+    hash
   end
 end

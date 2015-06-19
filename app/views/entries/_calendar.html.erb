@@ -1,3 +1,4 @@
 <%= month_calendar(table: {class: 'table'}) do |date| %>
-  <%= date %>
+  <%= date %><br/>
+  <%= entries[date.to_s].text if entries.has_key?(date.to_s) %>
 <% end %>

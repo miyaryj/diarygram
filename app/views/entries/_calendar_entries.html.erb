@@ -1,3 +1,12 @@
-<% entries.each do |entry| %>
-  <%= entry.text %>
-<% end %>
+<div class="dropdown">
+  <% entries.each do |entry| %>
+    <%= link_to('#', class: 'dropdown-toggle', data: {toggle:'dropdown'}) do %>
+      <%= image_tag(entry.thumbnail_url) %>
+    <% end %>
+    <ul class="dropdown-menu">
+      <li class="dropdown-header"><%= entry.text %></li>
+      <li><%= link_to('View', entry.media_url) %></li>
+      <li><%= link_to('Edit', edit_entry_path(entry.id)) %></li>
+    </ul>
+  <% end %>
+</div>

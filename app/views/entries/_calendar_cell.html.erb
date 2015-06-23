@@ -2,6 +2,7 @@
   <% entries.each do |entry| %>
     <%= link_to('#', class: 'dropdown-toggle', data: {toggle:'dropdown'}) do %>
       <%= image_tag(entry.thumbnail_url, class: 'img-responsive') %>
+      <p class="calendar-date"><%= date.day %></p>
     <% end %>
     <ul class="dropdown-menu">
       <li class="dropdown-header"><%= entry.text %></li>
@@ -10,4 +11,3 @@
     </ul>
   <% end %>
 </div>
-<p class="calendar-date"><%= date.day %></p>

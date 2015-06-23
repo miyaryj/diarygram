@@ -9,7 +9,7 @@ module EntriesHelper
   end
 
   def action_to_continue(default: {controller: :entries, action: :new})
-    session[:return_to_after_instagram] || default
+    session[:action_to_continue] || default
   end
 
   def entries_of_month(user, date_of_month)

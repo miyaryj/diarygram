@@ -1,6 +1,6 @@
 <div class="dropdown">
   <%= link_to(new_entry_path(date: date.to_s)) do %>
     <%= image_tag('default-placeholder-300x300.png', class: 'img-responsive') %>
+    <p class="calendar-date"><%= date.day %></p>
   <% end %>
 </div>
-<p class="calendar-date"><%= date.day %></p>

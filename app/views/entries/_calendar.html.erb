@@ -1,7 +1,13 @@
-<%= month_calendar(table: {class: 'table'}) do |date| %>
-  <%= date %><br/>
-  <%= render(
-    partial: 'entries/calendar_entries',
-    locals: {date: date, entries: entries[date.to_s]}
-  ) if entries.has_key?(date.to_s) %>
+<%= month_calendar(table: {class: 'calendar-table table'}, td: {class: 'calendar-cell'}) do |date| %>
+  <% if entries.has_key?(date.to_s) %>
+    <%= render(
+      partial: 'entries/calendar_cell',
+      locals: {date: date, entries: entries[date.to_s]}
+    ) %>
+  <% else %>
+    <%= render(
+      partial: 'entries/calendar_cell_empty',
+      locals: {date: date}
+    ) %>
+  <% end %>
 <% end %>

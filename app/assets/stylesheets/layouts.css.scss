@@ -1,4 +1,5 @@
 @import "bootstrap";
+@import "consts";
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -77,11 +78,25 @@ footer {
 
 /* header */
 
+paper-header-panel {
+  background-color: $color-primary;
+  color: $color-text-primary;
+
+  a {
+    color: $color-text-primary;
+  }
+
+  a:hover {
+    color: $color-text-primary;
+    text-decoration: none;
+  }
+}
+
 #logo {
   float: left;
   margin-right: 10px;
   font-size: 1.8em;
-  color: #667;
+  color: $color-text-primary;
   letter-spacing: -1px;
   padding-top: 12px;
   padding-bottom: 10px;

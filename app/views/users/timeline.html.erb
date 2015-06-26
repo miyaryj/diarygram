@@ -1,3 +1,11 @@
-<ul class="list-group timeline-list">
-  <%= render partial: '/entries/entry_li', collection:@entries, as: :entry, locals: {} %>
-</ul>
+<div class="row">
+  <ul class="list-group timeline-list">
+    <%= render partial: '/entries/entry_li', collection:@entries, as: :entry, locals: {} %>
+  </ul>
+
+  <div class="floating-btn-container">
+    <%= link_to(new_entry_path) do %>
+      <paper-fab icon="add" class="pull-right floating-btn"></paper-fab>
+    <% end %>
+  </div>
+</div>

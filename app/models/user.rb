@@ -5,4 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :entries, dependent: :destroy
+
+  def timeline_entries
+    Entry.where(user_id: id).order(:created_at)
+  end
 end

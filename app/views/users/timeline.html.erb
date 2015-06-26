@@ -1,1 +1,3 @@
-<h1>Timeline</h1>
+<ul class="list-group timeline-list">
+  <%= render partial: '/entries/entry_li', collection:@entries, as: :entry, locals: {} %>
+</ul>

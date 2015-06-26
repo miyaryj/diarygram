@@ -1,0 +1,8 @@
+<div class="media-left">
+  <%= image_tag(entry.thumbnail_url, class: 'timeline-thumbnail') %>
+</div>
+<div class="media-body">
+  <h4><%= entry.text %></h4>
+  <p><%= entry.date %></p>
+  <p><%= entry.user.email %></p>
+</div>

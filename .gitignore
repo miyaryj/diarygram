@@ -19,3 +19,7 @@
 # Ignore ruby config
 .ruby-version
 .ruby-gemset
+
+# Ignore npm and bower modules
+node_modules
+bower_components

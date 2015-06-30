@@ -1,4 +1,6 @@
 @import "bootstrap";
+@import "bootstrap-material-design/dist/css/material";
+@import "bootstrap-material-design/dist/css/ripples";
 @import "consts";
 
 @mixin box_sizing {
@@ -91,7 +93,7 @@ footer {
 }
 
 #logo:hover {
-  color: #99a;
+  color: $color-text-primary-hover;
   text-decoration: none;
 }
 

@@ -14,4 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require bootstrap-material-design/dist/js/material
+//= require bootstrap-material-design/dist/js/ripples
 //= require_tree .

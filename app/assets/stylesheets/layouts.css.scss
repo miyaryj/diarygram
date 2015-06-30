@@ -78,20 +78,6 @@ footer {
 
 /* header */
 
-paper-header-panel {
-  background-color: $color-primary;
-  color: $color-text-primary;
-
-  a {
-    color: $color-text-primary;
-  }
-
-  a:hover {
-    color: $color-text-primary;
-    text-decoration: none;
-  }
-}
-
 #logo {
   float: left;
   margin-right: 10px;

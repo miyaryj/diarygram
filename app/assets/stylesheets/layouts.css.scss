@@ -1,5 +1,5 @@
 @import "bootstrap";
-@import "bootstrap-material-design/dist/css/material";
+@import "bootstrap-material-design/dist/css/material-fullpalette";
 @import "bootstrap-material-design/dist/css/ripples";
 @import "consts";
 
@@ -139,4 +139,12 @@ table {
     padding-top: 0;
     padding-bottom: 0;
   }
+}
+
+.floating-btn-container {
+  position: fixed;
+  bottom: 10px;
+  width: 100%;
+  max-width: 960px;
+  padding: 0 20px 10px 0;
 }

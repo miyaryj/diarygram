@@ -2,6 +2,7 @@ include EntriesHelper
 include InstagramHelper
 
 class EntriesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_entry, only: [:show, :edit, :update, :destroy]
   before_action :clear_action_to_continue, only: [:new, :edit]
 

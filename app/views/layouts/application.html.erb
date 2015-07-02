@@ -10,10 +10,12 @@
 <body>
 
 	<%= render 'layouts/header' %>
-	<div class="container">
-		<%= yield %>
-		<%= render 'layouts/footer' %>
-	</div>
+  <div class="container panel panel-default main-panel">
+  	<div class="panel-body main-panel-body">
+  		<%= yield %>
+  		<%= render 'layouts/footer' %>
+  	</div>
+  </div>
 
 </body>
 </html>

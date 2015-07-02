@@ -3,6 +3,7 @@ include InstagramHelper
 class InstagramController < ApplicationController
   OAUTH_CALLBACK_URL = 'http://localhost:3000/instagram/callback'
 
+  before_action :authenticate_user!
   before_action :sign_in_to_instagram, only: [:index]
 
   def index

@@ -2,8 +2,9 @@ Rails.application.routes.draw do
 
   root 'users#timeline'
 
-  devise_for :users
-
+  devise_for :users, controllers: {
+    sessions: 'sessions'
+  }
   get 'users/timeline' => 'users#timeline'
   get 'instagram/oauth' => 'instagram#oauth'
   get 'instagram/callback' => 'instagram#callback'

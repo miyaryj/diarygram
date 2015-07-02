@@ -20,6 +20,18 @@ module InstagramHelper
     session.delete(:return_to_after_instagram)
   end
 
+  def set_access_token(access_token)
+    session[:access_token] = access_token
+  end
+
+  def has_access_token?
+    session[:access_token].present?
+  end
+
+  def clear_access_token
+    session.delete(:access_token)
+  end
+
   def instagram_medias
     client.user_recent_media(:self)
   end

@@ -13,6 +13,13 @@ Rails.application.routes.draw do
   resources :users, only: ['show']
   resources :entries
 
+  namespace :instagram do
+    get 'sessions/callback' => 'sessions#callback'
+    resources :sessions, only: ['new']
+    #resources :users
+    resources :medias
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

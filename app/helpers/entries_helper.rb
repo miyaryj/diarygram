@@ -1,15 +1,13 @@
 module EntriesHelper
 
-  def store_action_to_continue(action)
-    session[:action_to_continue] = action
+  def store_entry_action(action)
+    session[:entry_action] = action
   end
 
-  def clear_action_to_continue
-    session.delete(:action_to_continue)
-  end
-
-  def action_to_continue(default: {controller: :entries, action: :new})
-    session[:action_to_continue] || default
+  def continue_entry_action(param)
+    action = session[:entry_action] || {controller: '/entries', action: :new}
+    redirect_to(action.merge(param))
+    session.delete(:entry_action)
   end
 
   def entries_of_month(user, date_of_month)

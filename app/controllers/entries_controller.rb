@@ -20,8 +20,8 @@ class EntriesController < ApplicationController
   # GET /entries/new
   def new
     unless params[:instagram_media_id].present?
-      store_action_to_continue(controller: :entries, action: :new, date: params[:date])
-      return redirect_to(controller: :instagram, action: :index)
+      store_entry_action(controller: '/entries', action: :new, date: params[:date])
+      return redirect_to(instagram_medias_path)
     end
 
     @entry = Entry.new

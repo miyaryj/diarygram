@@ -11,16 +11,8 @@ class Instagram::SessionsController < ApplicationController
 
   def callback
     response = Instagram.get_access_token(params[:code], redirect_uri: OAUTH_CALLBACK_URL)
+    set_oauth_response(response)
 
-    p current_user
-    if current_user.instagram_user.present? && current_user.instagram_user.instagram_user_id == response.user.id
-      set_access_token(response.access_token)
-    else
-      set_oauth_response(response)
-      redirect_to(controller: :users, action: :new)
-    end
-
-    sign_in_to_instagram
     redirect_back_instagram
   end
 

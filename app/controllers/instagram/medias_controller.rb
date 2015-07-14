@@ -19,5 +19,12 @@ class Instagram::MediasController < ApplicationController
       store_location_instagram
       return redirect_to(controller: :sessions, action: :new)
     end
+
+    user = get_oauth_user
+    if current_user.instagram_user.present? && current_user.instagram_user.instagram_user_id == user.id
+    else
+      store_location_instagram
+      return redirect_to(controller: :users, action: :new)
+    end
   end
 end

@@ -1,16 +1,15 @@
 class Instagram::UsersController < ApplicationController
   before_action :set_instagram_user, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  before_action :sign_in_to_instagram, only: [:index]
+  before_action :sign_in_to_instagram, only: [:new]
 
   def new
-    @instagram_user = Instagram::User.new
+    @instagram_user = current_user.build_instagram_user
 
-    user = Hashie.new(get_oauth_response['user'])
-    @instagram_user.user_id = current_user.id
+    user = get_oauth_user
     @instagram_user.instagram_user_id = user.id
-    @instagram_user.instagram_user_id = user.id
-    @instagram_user.instagram_user_id = user.id
+    @instagram_user.name = user.username
+    @instagram_user.profile_image_url = user.profile_picture
   end
 
   # GET /instagram/users/1/edit
@@ -22,14 +21,10 @@ class Instagram::UsersController < ApplicationController
   def create
     @instagram_user = Instagram::User.new(instagram_user_params)
 
-    respond_to do |format|
-      if @instagram_user.save
-        format.html { redirect_to @instagram_user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @instagram_user }
-      else
-        format.html { render :new }
-        format.json { render json: @instagram_user.errors, status: :unprocessable_entity }
-      end
+    if @instagram_user.save
+      redirect_back_instagram
+    else
+      render :new
     end
   end
 
@@ -58,13 +53,20 @@ class Instagram::UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_instagram_user
-      @instagram_user = Instagram::User.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_instagram_user
+    @instagram_user = Instagram::User.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def instagram_user_params
-      params.require(:instagram_user).permit(:name, :user_id, :instagram_user_id, :profile_image_url)
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def instagram_user_params
+    p params
+    params.require(:instagram_user).permit(:name, :user_id, :instagram_user_id, :profile_image_url)
+  end
+
+  def sign_in_to_instagram
+    unless signed_in_to_instagram?
+      return redirect_to(controller: :sessions, action: :new)
     end
+  end
 end

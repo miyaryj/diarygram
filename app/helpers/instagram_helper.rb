@@ -1,7 +1,7 @@
 module InstagramHelper
 
   def signed_in_to_instagram?
-    return false unless session[:access_token]
+    return false unless session[:oauth_response]
 
     begin
       instagram_username = client.user.username
@@ -24,20 +24,12 @@ module InstagramHelper
     session[:oauth_response] = response
   end
 
-  def get_oauth_response(response)
-    session[:oauth_response]
+  def clear_oauth_response
+    session.delete(:oauth_response)
   end
 
-  def set_access_token(access_token)
-    session[:access_token] = access_token
-  end
-
-  def has_access_token?
-    session[:access_token].present?
-  end
-
-  def clear_access_token
-    session.delete(:access_token)
+  def get_oauth_user
+    Hashie::Mash.new(session[:oauth_response]['user']) if session[:oauth_response]
   end
 
   def instagram_medias
@@ -51,6 +43,6 @@ module InstagramHelper
   private
 
   def client
-    Instagram.client(access_token: session[:access_token])
+    Instagram.client(access_token: session[:oauth_response]['access_token'])
   end
 end

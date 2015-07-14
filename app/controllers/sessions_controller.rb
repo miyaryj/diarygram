@@ -3,7 +3,7 @@ include InstagramHelper
 class SessionsController < Devise::SessionsController
 
   def destroy
-    clear_access_token
+    clear_oauth_response
     super
   end
 

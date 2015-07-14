@@ -1,32 +1,12 @@
 <%= form_for(@instagram_user) do |f| %>
-  <% if @instagram_user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@instagram_user.errors.count, "error") %> prohibited this instagram_user from being saved:</h2>
+  <%= image_tag(@instagram_user.profile_image_url) %>
+  <%= @instagram_user.name %>
 
-      <ul>
-      <% @instagram_user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= f.hidden_field :user_id, value: @instagram_user.user_id %>
+  <%= f.hidden_field :name, value: @instagram_user.name %>
+  <%= f.hidden_field :instagram_user_id, value: @instagram_user.instagram_user_id %>
+  <%= f.hidden_field :profile_image_url, value: @instagram_user.profile_image_url %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :instagram_user_id %><br>
-    <%= f.text_field :instagram_user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :profile_image_url %><br>
-    <%= f.text_field :profile_image_url %>
-  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

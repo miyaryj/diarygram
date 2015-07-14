@@ -7,14 +7,14 @@ Rails.application.routes.draw do
   }
   get 'users/timeline' => 'users#timeline'
 
-  resources :users, only: ['show']
+  resources :users, only: [:show]
   resources :entries
 
   namespace :instagram do
     get 'sessions/callback' => 'sessions#callback'
-    resources :sessions, only: ['new']
-    resources :users
-    resources :medias
+    resources :sessions, only: [:new]
+    resources :users, except: [:show]
+    resources :medias, only: [:index, :show]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @instagram_user.name %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @instagram_user.user_id %>
+</p>
+
+<p>
+  <strong>Instagram user:</strong>
+  <%= @instagram_user.instagram_user_id %>
+</p>
+
+<p>
+  <strong>Profile image url:</strong>
+  <%= @instagram_user.profile_image_url %>
+</p>
+
+<%= link_to 'Edit', edit_instagram_user_path(@instagram_user) %> |
+<%= link_to 'Back', instagram_users_path %>

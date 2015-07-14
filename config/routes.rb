@@ -6,9 +6,6 @@ Rails.application.routes.draw do
     sessions: 'sessions'
   }
   get 'users/timeline' => 'users#timeline'
-  get 'instagram/oauth' => 'instagram#oauth'
-  get 'instagram/callback' => 'instagram#callback'
-  get 'instagram/index' => 'instagram#index'
 
   resources :users, only: ['show']
   resources :entries
@@ -16,7 +13,7 @@ Rails.application.routes.draw do
   namespace :instagram do
     get 'sessions/callback' => 'sessions#callback'
     resources :sessions, only: ['new']
-    #resources :users
+    resources :users
     resources :medias
   end
 

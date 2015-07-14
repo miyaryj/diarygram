@@ -10,6 +10,10 @@ module EntriesHelper
     session.delete(:entry_action)
   end
 
+  def clear_entry_action
+    session.delete(:entry_action)
+  end
+
   def entries_of_month(user, date_of_month)
     month = date_of_month.to_s.rpartition('-')[0]
     p month

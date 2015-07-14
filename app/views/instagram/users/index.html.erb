@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Instagram Users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>User</th>
+      <th>Instagram user</th>
+      <th>Profile image url</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @instagram_users.each do |instagram_user| %>
+      <tr>
+        <td><%= instagram_user.name %></td>
+        <td><%= instagram_user.user_id %></td>
+        <td><%= instagram_user.instagram_user_id %></td>
+        <td><%= instagram_user.profile_image_url %></td>
+        <td><%= link_to 'Show', instagram_user %></td>
+        <td><%= link_to 'Edit', edit_instagram_user_path(instagram_user) %></td>
+        <td><%= link_to 'Destroy', instagram_user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User', new_instagram_user_path %>

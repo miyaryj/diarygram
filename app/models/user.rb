@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_one :instagram_user, class_name: Instagram::User, dependent: :destroy
   has_many :entries, dependent: :destroy
 
   def timeline_entries

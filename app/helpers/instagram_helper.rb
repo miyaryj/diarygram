@@ -20,6 +20,14 @@ module InstagramHelper
     session.delete(:return_to_after_instagram)
   end
 
+  def set_oauth_response(response)
+    session[:oauth_response] = response
+  end
+
+  def get_oauth_response(response)
+    session[:oauth_response]
+  end
+
   def set_access_token(access_token)
     session[:access_token] = access_token
   end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150611110950) do
+ActiveRecord::Schema.define(version: 20150713081325) do
 
   create_table "entries", force: :cascade do |t|
     t.string   "text"
@@ -24,6 +24,17 @@ ActiveRecord::Schema.define(version: 20150611110950) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
   end
+
+  create_table "instagram_users", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.string   "instagram_user_id"
+    t.string   "profile_image_url"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "instagram_users", ["user_id"], name: "index_instagram_users_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

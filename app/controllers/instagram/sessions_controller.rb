@@ -15,5 +15,4 @@ class Instagram::SessionsController < ApplicationController
 
     redirect_back_instagram
   end
-
 end

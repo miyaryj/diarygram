@@ -1,5 +1,4 @@
 module ApplicationHelper
-
   def current_tab(tab)
     @tab = tab
   end

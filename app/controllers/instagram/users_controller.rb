@@ -53,6 +53,7 @@ class Instagram::UsersController < ApplicationController
   end
 
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_instagram_user
     @instagram_user = Instagram::User.find(params[:id])

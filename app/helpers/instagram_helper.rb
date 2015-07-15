@@ -1,5 +1,4 @@
 module InstagramHelper
-
   def signed_in_to_instagram?
     return false unless session[:oauth_response]
 
@@ -15,7 +14,7 @@ module InstagramHelper
     session[:return_to_after_instagram] = request.url
   end
 
-  def redirect_back_instagram(default: {action: :index})
+  def redirect_back_instagram(default: { action: :index })
     redirect_to(session[:return_to_after_instagram] || default)
     session.delete(:return_to_after_instagram)
   end

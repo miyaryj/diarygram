@@ -26,14 +26,16 @@ class EntriesController < ApplicationController
 
     @entry = Entry.new
 
-    if params[:date].present?
-      @date = Date.parse(params[:date])
-    else
-      @date = Date.today
-    end
-
     @instagram_media_id = params[:instagram_media_id]
     @instagram_media = instagram_media(@instagram_media_id)
+
+    if params[:date].present?
+      @date = Date.parse(params[:date])
+    elsif @instagram_media
+      @date = Date.parse(Time.zone.at(@instagram_media.created_time.to_i).to_s)
+    else
+      @date = Time.zone.today
+    end
   end
 
   # GET /entries/1/edit
@@ -101,6 +103,7 @@ class EntriesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def entry_params
-    params.require(:entry).permit(:text, :date, :user_id, :image_url, :thumbnail_url, :media_url, :instagram_media_id)
+    params.require(:entry)
+      .permit(:text, :date, :user_id, :image_url, :thumbnail_url, :media_url, :instagram_media_id)
   end
 end

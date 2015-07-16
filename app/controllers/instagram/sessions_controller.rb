@@ -11,7 +11,7 @@ class Instagram::SessionsController < ApplicationController
 
   def callback
     response = Instagram.get_access_token(params[:code], redirect_uri: OAUTH_CALLBACK_URL)
-    set_oauth_response(response)
+    store_oauth_response(response)
 
     redirect_back_instagram
   end

@@ -6,10 +6,9 @@ class Instagram::UsersController < ApplicationController
   def new
     @instagram_user = current_user.build_instagram_user
 
-    user = get_oauth_user
-    @instagram_user.instagram_user_id = user.id
-    @instagram_user.name = user.username
-    @instagram_user.profile_image_url = user.profile_picture
+    @instagram_user.instagram_user_id = oauth_user.id
+    @instagram_user.name = oauth_user.username
+    @instagram_user.profile_image_url = oauth_user.profile_picture
   end
 
   # GET /instagram/users/1/edit
@@ -61,13 +60,12 @@ class Instagram::UsersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def instagram_user_params
-    p params
     params.require(:instagram_user).permit(:name, :user_id, :instagram_user_id, :profile_image_url)
   end
 
   def sign_in_to_instagram
-    unless signed_in_to_instagram?
-      return redirect_to(controller: :sessions, action: :new)
-    end
+    return if signed_in_to_instagram?
+
+    redirect_to(controller: :sessions, action: :new)
   end
 end

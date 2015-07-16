@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     if params[:start_date].present?
       date_of_month = Date.parse(params[:start_date])
     else
-      date_of_month = Date.today
+      date_of_month = Time.zone.today
     end
 
     @entries = entries_of_month(@user, date_of_month)

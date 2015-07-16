@@ -3,7 +3,7 @@ module InstagramHelper
     return false unless session[:oauth_response]
 
     begin
-      instagram_username = client.user.username
+      client.user.username
       return true
     rescue Instagram::BadRequest
       return false
@@ -19,7 +19,7 @@ module InstagramHelper
     session.delete(:return_to_after_instagram)
   end
 
-  def set_oauth_response(response)
+  def store_oauth_response(response)
     session[:oauth_response] = response
   end
 
@@ -27,8 +27,9 @@ module InstagramHelper
     session.delete(:oauth_response)
   end
 
-  def get_oauth_user
-    Hashie::Mash.new(session[:oauth_response]['user']) if session[:oauth_response]
+  def oauth_user
+    response = session[:oauth_response]
+    Hashie::Mash.new(response['user']) if response
   end
 
   def instagram_medias

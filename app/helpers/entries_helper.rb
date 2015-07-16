@@ -15,7 +15,6 @@ module EntriesHelper
 
   def entries_of_month(user, date_of_month)
     month = date_of_month.to_s.rpartition('-')[0]
-    p month
     user.entries.where("date like '%#{month}%'")
   end
 

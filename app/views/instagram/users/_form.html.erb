@@ -1,6 +1,5 @@
 <%= form_for(@instagram_user) do |f| %>
-  <%= image_tag(@instagram_user.profile_image_url) %>
-  <%= @instagram_user.name %>
+  <%= render partial: 'instagram/users/info', locals: {instagram_user: @instagram_user, editable: false} %>
 
   <%= f.hidden_field :user_id, value: @instagram_user.user_id %>
   <%= f.hidden_field :name, value: @instagram_user.name %>
@@ -8,6 +7,6 @@
   <%= f.hidden_field :profile_image_url, value: @instagram_user.profile_image_url %>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit('OK', class: 'btn btn-primary') %>
   </div>
 <% end %>

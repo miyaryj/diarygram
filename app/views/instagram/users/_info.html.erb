@@ -1,0 +1,15 @@
+<div class="list-group">
+  <div class="list-group-item">
+    <div class="row-action-primary">
+      <%= image_tag(instagram_user.profile_image_url, size: '50x50') %>
+    </div>
+    <div class="row-content">
+      <% if editable %>
+        <div class="least-content">
+          <%= link_to('', instagram_user_path(instagram_user.id), class: 'mdi-content-create') %>
+        </div>
+      <% end %>
+      <h4 class="list-group-item-heading"><%= instagram_user.name %></h4>
+    </div>
+  </div>
+</div>

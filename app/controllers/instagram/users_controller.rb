@@ -1,7 +1,7 @@
 class Instagram::UsersController < ApplicationController
   before_action :set_instagram_user, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  before_action :sign_in_to_instagram, only: [:new]
+  before_action :sign_in_to_instagram, only: [:new, :edit]
 
   def new
     @instagram_user = current_user.build_instagram_user
@@ -13,6 +13,11 @@ class Instagram::UsersController < ApplicationController
 
   # GET /instagram/users/1/edit
   def edit
+    @instagram_user = current_user.build_instagram_user
+
+    @instagram_user.instagram_user_id = oauth_user.id
+    @instagram_user.name = oauth_user.username
+    @instagram_user.profile_image_url = oauth_user.profile_picture
   end
 
   # POST /instagram/users
@@ -66,6 +71,7 @@ class Instagram::UsersController < ApplicationController
   def sign_in_to_instagram
     return if signed_in_to_instagram?
 
+    store_location_instagram
     redirect_to(controller: :sessions, action: :new)
   end
 end

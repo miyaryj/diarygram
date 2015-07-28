@@ -12,8 +12,10 @@ Rails.application.routes.draw do
 
   namespace :instagram do
     get 'sessions/callback' => 'sessions#callback'
-    resources :sessions, only: [:new]
-    resources :users, except: [:show]
+    resources :sessions, only: [:new, :destroy]
+    match '/sign_in', to: 'sessions#new', via: :get
+    match '/sign_out', to: 'sessions#destroy', via: :get
+    resources :users
     resources :medias, only: [:index, :show]
   end
 

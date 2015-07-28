@@ -1,3 +1,5 @@
+require 'open-uri'
+
 include InstagramHelper
 
 class Instagram::SessionsController < ApplicationController
@@ -14,5 +16,10 @@ class Instagram::SessionsController < ApplicationController
     store_oauth_response(response)
 
     redirect_back_instagram
+  end
+
+  def destroy
+
+    redirect_to instagram_sign_in_path
   end
 end

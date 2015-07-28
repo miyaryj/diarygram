@@ -1,0 +1,5 @@
+<h1>Instagram Account</h1>
+
+<%= render partial: 'instagram/users/info', locals: {instagram_user: @instagram_user, editable: false} %>
+
+<%= link_to('Sign in with another account', instagram_sign_out_path, class: 'btn btn-default btn-sm') %>

@@ -19,7 +19,7 @@ class Instagram::SessionsController < ApplicationController
   end
 
   def destroy
-
+    # TODO
     redirect_to instagram_sign_in_path
   end
 end

@@ -1,0 +1,12 @@
+<div class="list-group-item">
+  <%= link_to instagram_media_path(media.id), class: '' do %>
+    <div class="row-action-primary">
+      <%= image_tag(media.images.thumbnail.url, class: 'timeline-thumbnail') %>
+    </div>
+    <div class="row-content">
+      <h4 class="list-group-item-heading"><%= media.caption.text %></h4>
+      <p class="list-group-item-text"><%= Time.at(media.created_time.to_i).to_s %></p>
+    </div>
+  <% end %>
+</div>
+<div class="list-group-separator"></div>

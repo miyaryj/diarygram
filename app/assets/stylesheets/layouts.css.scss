@@ -88,7 +88,7 @@ footer {
   float: left;
   margin-right: 10px;
   font-size: 1.8em;
-  color: $color-text-primary;
+  color: $color-text-inverse;
   letter-spacing: -1px;
   padding-top: 12px;
   padding-bottom: 10px;
@@ -97,7 +97,7 @@ footer {
 }
 
 #logo:hover {
-  color: $color-text-primary-hover;
+  opacity: 0.8;
   text-decoration: none;
 }
 
@@ -159,4 +159,10 @@ table {
   width: 100%;
   max-width: 960px;
   padding: 0 20px 10px 0;
+}
+
+.gentle-feedback:hover {
+  color: $color-text-primary;
+  background-color: transparent;
+  opacity: 0.8;
 }

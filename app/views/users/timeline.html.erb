@@ -1,7 +1,7 @@
 <div class="row">
-  <ul class="list-group timeline-list">
-    <%= render partial: '/entries/entry_li', collection:@entries, as: :entry, locals: {} %>
-  </ul>
+  <div class="list-group entry-list">
+    <%= render partial: '/entries/entry', collection:@entries, as: :entry, locals: {} %>
+  </div>
 
   <div class="floating-btn-container">
     <%= link_to(new_entry_path, class: 'btn btn-fab btn-raised btn-material-deep-orange-400 pull-right') do %>

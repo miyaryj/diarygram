@@ -1,6 +1,9 @@
+
+
 class Instagram::UsersController < ApplicationController
   before_action :set_instagram_user, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :correct_user, only: [:show, :edit, :update, :destroy]
   before_action :sign_in_to_instagram, only: [:new, :edit]
 
   def new
@@ -73,5 +76,10 @@ class Instagram::UsersController < ApplicationController
 
     store_location_instagram
     redirect_to(controller: :sessions, action: :new)
+  end
+
+  def correct_user
+    redirect_to(root_path) unless current_user.instagram_user.present? \
+      && current_user.instagram_user == @instagram_user
   end
 end

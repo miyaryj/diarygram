@@ -5,9 +5,16 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     sessions: 'sessions'
   }
-  get 'users/timeline' => 'users#timeline'
 
-  resources :users, only: [:show]
+  resources :users, only: [:show] do
+    collection do
+      get :timeline
+    end
+    member do
+      get :following, :followers
+    end
+  end
+  resources :users_followers, only: [:create, :destroy]
   resources :entries
 
   namespace :instagram do

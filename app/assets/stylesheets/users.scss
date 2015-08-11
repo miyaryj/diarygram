@@ -10,3 +10,25 @@ li.timeline-listitem {
   margin-top: 0;
   background-color: rgba(255, 255, 255, 0);;
 }
+
+.user-info {
+  margin-bottom: 8px;
+}
+
+.user-stats {
+  overflow: auto;
+  margin-bottom: 32px;
+  a {
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid silver;
+    font-size: 12px;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    strong {
+      font-size: 16px;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+<% unless current_user == @user %>
+  <div id="follow_form" class="follow-form">
+    <% if current_user.following?(@user) %>
+      <%= form_for(current_user.users_followed_users.find_by(followed_id: @user.id),
+           html: { method: :delete }) do |f| %>
+        <%= f.submit "Following", class: "btn btn-default pull-right" %>
+      <% end %>
+    <% else %>
+      <%= form_for(current_user.users_followed_users.build(followed_id: @user.id)) do |f| %>
+        <div><%= f.hidden_field :followed_id %></div>
+        <%= f.submit "Follow", class: "btn btn-default pull-right" %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

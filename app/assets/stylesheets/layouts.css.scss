@@ -161,7 +161,21 @@ table {
   padding: 0 20px 10px 0;
 }
 
-.gentle-feedback:hover {
+.link-accent {
+  color: $color-primary;
+}
+
+.link-accent:hover {
+  color: $color-primary;
+  background-color: transparent;
+  opacity: 0.8;
+}
+
+.link-gentle {
+  color: $color-text-primary;
+}
+
+.link-gentle:hover {
   color: $color-text-primary;
   background-color: transparent;
   opacity: 0.8;

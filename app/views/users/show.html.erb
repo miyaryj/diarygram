@@ -4,8 +4,27 @@
       <% authenticated = (@user == current_user) %>
       <%= render partial: 'instagram/users/info', locals: {instagram_user: @user.instagram_user, editable: authenticated} %>
     <% else %>
-      <h1><%= @user.email %></h1>
+      <h1><%= @user.name %></h1>
     <% end %>
+
+    <div class="user-stats">
+      <%= link_to following_user_path(@user), class: 'link-accent' do %>
+        <strong id="following" class="user-stat">
+          <%= @user.followed_users.count %>
+        </strong>
+        following
+      <% end %>
+      <%= link_to followers_user_path(@user), class: 'link-accent' do %>
+        <strong id="followers" class="user-stat">
+          <%= @user.followers.count %>
+        </strong>
+        followers
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col-md-6 col-sm-12">
+    <%= render partial: 'users/follow_form' %>
   </div>
 
   <div class="col-md-12">

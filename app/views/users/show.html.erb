@@ -1,11 +1,6 @@
 <div class="row">
   <div class="col-md-6 col-sm-12">
-    <% if @user.instagram_user %>
-      <% authenticated = (@user == current_user) %>
-      <%= render partial: 'instagram/users/info', locals: {instagram_user: @user.instagram_user, editable: authenticated} %>
-    <% else %>
-      <h1><%= @user.name %></h1>
-    <% end %>
+    <%= render @user %>
 
     <div class="user-stats">
       <%= link_to following_user_path(@user), class: 'link-accent' do %>

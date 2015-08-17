@@ -1,0 +1,6 @@
+<% if user.instagram_user %>
+  <% authenticated = (user == current_user) %>
+  <%= render partial: 'instagram/users/info', locals: {instagram_user: user.instagram_user, editable: authenticated} %>
+<% else %>
+  <h1><%= user.name %></h1>
+<% end %>

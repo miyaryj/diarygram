@@ -22,6 +22,14 @@ class User < ActiveRecord::Base
     end
   end
 
+  def profile_image_url
+    if instagram_user
+      instagram_user.profile_image_url
+    else
+      nil
+    end
+  end
+
   def timeline_entries
     Entry.where(user_id: id).order(:created_at)
   end

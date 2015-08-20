@@ -1,6 +1,4 @@
-// Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "entries";
 
 ul.timeline-list {
   padding: 0;
@@ -31,4 +29,8 @@ li.timeline-listitem {
       font-size: 16px;
     }
   }
+}
+
+img.user-list-thumbnail {
+  @extend img.entry-list-thumbnail;
 }

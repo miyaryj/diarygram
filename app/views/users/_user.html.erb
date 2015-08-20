@@ -1,6 +1,11 @@
-<% if user.instagram_user %>
-  <% authenticated = (user == current_user) %>
-  <%= render partial: 'instagram/users/info', locals: {instagram_user: user.instagram_user, editable: authenticated} %>
-<% else %>
-  <h1><%= user.name %></h1>
-<% end %>
+<div class="list-group-item">
+  <%= link_to user_path(user.id), class: 'link-gentle' do %>
+    <div class="row-action-primary">
+      <%= image_tag(user.profile_image_url, class: 'timeline-thumbnail') %>
+    </div>
+    <div class="row-content">
+      <h4 class="list-group-item-heading"><%= user.name %></h4>
+    </div>
+  <% end %>
+</div>
+<div class="list-group-separator"></div>

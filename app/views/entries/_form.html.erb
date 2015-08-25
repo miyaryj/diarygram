@@ -13,7 +13,11 @@
 
   <div class="field">
     <%= f.label :date %><br>
-    <%= f.text_field :date, value: @date.to_s %>
+    <%= f.text_field(:date,
+      value: @date.to_s,
+      class: 'form-control',
+      data: { provide: 'datepicker', 'date-format' => 'yyyy/mm/dd' }
+    ) %>
   </div>
 
   <%= image_tag(@instagram_media.images.thumbnail.url) %>
@@ -30,3 +34,8 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container">
+  </div>
+</nav>

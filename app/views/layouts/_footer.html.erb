@@ -1,8 +1,0 @@
-<ul class="nav nav-pills nav-justified">
-  <li role="presentation" class="<%= 'active' if current_tab?(:timeline) %>">
-    <%= link_to('Timeline', root_path) %>
-  </li>
-  <li role="presentation" class="<%= 'active' if current_tab?(:calendar) %>">
-    <%= link_to('Calendar', user_path(current_user.id)) if signed_in? %>
-  </li>
-</ul>

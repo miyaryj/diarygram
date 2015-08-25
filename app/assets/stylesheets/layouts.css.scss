@@ -110,6 +110,16 @@ footer {
   margin-bottom: 0;
 }
 
+.navbar-layer-tabs {
+  margin-top: 60px;
+  min-height: 40px;
+
+  li > a.navbar-nav-tab {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
 #logo {
   float: left;
   margin-right: 10px;
@@ -172,6 +182,7 @@ table {
 }
 
 .main-panel {
+  margin-top: 100px;
   margin-bottom: 0;
 }
 
@@ -183,6 +194,6 @@ table {
   position: fixed;
   bottom: 10px;
   width: 100%;
-  max-width: 960px;
+  max-width: 640px;
   padding: 0 20px 10px 0;
 }

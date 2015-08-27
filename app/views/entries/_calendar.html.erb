@@ -1,4 +1,7 @@
-<%= month_calendar(table: {class: 'calendar-table table'}, td: {class: 'calendar-cell'}) do |date| %>
+<%= month_calendar(
+  table: {class: 'calendar-table table'},
+  header: {class: 'calendar-header center'},
+  title: ->(start_date) { content_tag :span, "#{start_date.year}/#{start_date.month}", class: "calendar-title" }) do |date| %>
   <% if entries.has_key?(date.to_s) %>
     <%= render(
       partial: 'entries/calendar_cell',

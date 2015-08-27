@@ -7,22 +7,35 @@ img.entry-list-thumbnail {
   height: 100px;
 }
 
-.table {
-  table.calendar-table {
-    table-layout: fixed;
-  }
+table.calendar-table {
+  table-layout: fixed;
+  margin-top: 16px;
 
-  td.calendar-cell {
+  & > tbody > tr > td {
     padding: 0;
     position: relative;
+    border: 1px solid white;
   }
+}
+
+.calendar-header > a {
+  font-size: 24px;
+  margin: 0 10px 0 10px;
+}
+
+.calendar-title {
+  font-size: 24px;
 }
 
 .calendar-date {
   position: absolute;
   top: 0;
   left: 10px;
-  font-size: 32px;
+  font-size: 24px;
   font-weight: bold;
   color: rgba(255, 255, 255, 0.8);
+}
+
+.calendar-empty:hover {
+  opacity: 0.8;
 }

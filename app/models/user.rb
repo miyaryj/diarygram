@@ -31,7 +31,12 @@ class User < ActiveRecord::Base
   end
 
   def timeline_entries
-    Entry.where(user_id: id).order(:created_at)
+    user_id = Entry.arel_table[:user_id]
+    condition = user_id.eq(id)
+    followed_users.each do |followed|
+      condition = condition.or user_id.eq(followed.id)
+    end
+    Entry.where(condition).order(:created_at)
   end
 
   def following?(other)

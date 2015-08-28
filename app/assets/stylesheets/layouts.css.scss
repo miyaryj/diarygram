@@ -1,6 +1,3 @@
-@import "bootstrap";
-@import "bootstrap-material-design/dist/css/material-fullpalette";
-@import "bootstrap-material-design/dist/css/ripples";
 @import "consts";
 
 @mixin box_sizing {
@@ -198,4 +195,22 @@ table {
   width: 100%;
   max-width: 640px;
   padding: 0 20px 10px 0;
+}
+
+.pagination {
+  margin: 0;
+
+  & > li > a {
+    color: $color-primary;
+
+    &:hover {
+      color: $color-primary;
+      opacity: 0.8;
+    }
+  }
+
+  & > .active > a {
+    background-color: $color-primary;
+    border-color: $color-primary;
+  }
 }

@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def timeline
     current_tab(:timeline)
 
-    @entries = current_user.timeline_entries.limit(10)
+    @entries = current_user.timeline_entries.paginate(page: params[:page])
   end
 
   def show

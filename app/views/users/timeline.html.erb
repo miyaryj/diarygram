@@ -2,6 +2,7 @@
   <div class="list-group">
     <%= render partial: '/entries/entry', collection:@entries, as: :entry, locals: {} %>
   </div>
+  <%= will_paginate(@entries, class: 'text-center') %>
 
   <div class="floating-btn-container">
     <%= link_to(new_entry_path, class: 'btn btn-fab btn-raised btn-material-deep-orange-400 pull-right') do %>

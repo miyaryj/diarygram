@@ -3,7 +3,9 @@ require 'open-uri'
 include InstagramHelper
 
 class Instagram::SessionsController < ApplicationController
-  OAUTH_CALLBACK_URL = 'http://localhost:3000/instagram/sessions/callback'
+  HOSTNAME = ENV['HOSTNAME']
+  HOSTNAME ||= 'localhost:3000'
+  OAUTH_CALLBACK_URL = "http://#{HOSTNAME}/instagram/sessions/callback"
 
   before_action :authenticate_user!
 

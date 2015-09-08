@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
     followed_users.each do |followed|
       condition = condition.or user_id.eq(followed.id)
     end
-    Entry.where(condition).order(:created_at)
+    Entry.where(condition).order(created_at: :desc)
   end
 
   def following?(other)

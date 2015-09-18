@@ -2,10 +2,13 @@
   <div class="container">
     <ul class="nav navbar-nav">
       <li class="<%= 'active' if current_tab?(:timeline) %>">
-        <%= link_to 'Timeline', root_path, class: 'navbar-nav-tab' %>
+        <%= link_to 'Timeline', root_path, class: 'navbar-nav-tab' if signed_in? %>
       </li>
       <li class="<%= 'active' if current_tab?(:calendar) %>">
         <%= link_to 'Calendar', user_path(current_user.id), class: 'navbar-nav-tab' if signed_in? %>
+      </li>
+      <li class="<%= 'active' if current_tab?(:account) %>">
+        <%= link_to 'Account', '#', class: 'navbar-nav-tab' if signed_in? %>
       </li>
     </ul>
   </div>

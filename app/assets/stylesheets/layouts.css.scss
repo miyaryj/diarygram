@@ -109,6 +109,10 @@ footer {
   margin-bottom: 0;
 }
 
+.navbar-layer-title {
+  height: 60px;
+}
+
 .navbar-layer-tabs {
   margin-top: 60px;
   min-height: 40px;
@@ -134,6 +138,38 @@ footer {
 #logo:hover {
   opacity: 0.8;
   text-decoration: none;
+}
+
+/* Disable tabs collapse */
+@media (min-width: 0px) {
+  .navbar-header {
+    float: left;
+  }
+  .navbar-toggle {
+    display: none;
+  }
+  .navbar-collapse {
+    border-top: 0 none;
+    box-shadow: none;
+    width: auto;
+  }
+  .navbar-collapse.collapse {
+    display: block !important;
+    height: auto !important;
+    padding-bottom: 0;
+    overflow: visible !important;
+  }
+  .navbar-nav {
+    float: left !important;
+    margin: 0;
+  }
+  .navbar-nav>li {
+    float: left;
+  }
+  .navbar-nav>li>a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
 }
 
 /* forms */

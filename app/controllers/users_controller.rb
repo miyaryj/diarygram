@@ -13,6 +13,10 @@ class UsersController < ApplicationController
     @entries = current_user.timeline_entries.paginate(page: params[:page])
   end
 
+  def account
+    current_tab(:account)
+  end
+
   def show
     current_tab(:calendar)
 

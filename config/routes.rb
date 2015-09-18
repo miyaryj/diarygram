@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show] do
     collection do
       get :timeline
+      get :account
     end
     member do
       get :following, :followers

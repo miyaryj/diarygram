@@ -1,39 +1,32 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-10 col-sm-10 col-xs-10 list-group user-info">
+    <div class="list-group-item">
+      <div class="row-action-primary">
+        <%= image_tag(@entry.user.profile_image_url, size: '30x30') %>
+      </div>
+      <div class="row-content">
+        <h4 class="list-group-item-heading">
+          <%= link_to @entry.user.name, user_path(@entry.user) %>
+        </h4>
+        <p class="list-group-item-text">
+          <%= Date.parse(@entry.date).to_s %>
+        </p>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <strong>Text:</strong>
-  <%= @entry.text %>
-</p>
+  <div class="col-md-2 col-sm-2 col-xs-2">
+    <%= link_to('#', class: 'dropdown-toggle', data: {toggle:'dropdown'}) do %>
+      <i class="mdi-navigation-more-vert pull-right menu-icon link-gentle"></i>
+    <% end %>
+    <ul class="dropdown-menu">
+      <li><%= link_to 'View in Instagram', @entry.media_url  %></li>
+      <li><%= link_to 'Edit', edit_entry_path(@entry.id) %></li>
+      <li><%= link_to 'Delete', entry_path(@entry.id), method: :delete, data: { confirm: 'Are you sure?' } %></li>
+    </ul>
+  </div>
+</div>
 
-<p>
-  <strong>Date:</strong>
-  <%= @entry.date %>
-</p>
+<p class="h4 entry-title"><%= @entry.text %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @entry.user_id %>
-</p>
-
-<p>
-  <strong>Image url:</strong>
-  <%= @entry.image_url %>
-</p>
-
-<p>
-  <strong>Thumbnail url:</strong>
-  <%= @entry.thumbnail_url %>
-</p>
-
-<p>
-  <strong>Media url:</strong>
-  <%= @entry.media_url %>
-</p>
-
-<p>
-  <strong>Instagram media:</strong>
-  <%= @entry.instagram_media_id %>
-</p>
-
-<%= link_to 'Edit', edit_entry_path(@entry) %> |
-<%= link_to 'Back', entries_path %>
+<%= image_tag @entry.image_url, class: 'img-responsive' %>

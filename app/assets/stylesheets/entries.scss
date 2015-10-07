@@ -2,11 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-img.entry-list-thumbnail {
-  width: 100px;
-  height: 100px;
-}
-
 table.calendar-table {
   table-layout: fixed;
   margin-top: 16px;
@@ -46,4 +41,16 @@ i.menu-icon {
 
 p.entry-title {
   margin-bottom: 15px;
+}
+
+.entry-list-image {
+  margin-top: 10px;
+  height: 150px;
+  overflow: hidden;
+  position: relative;
+  img {
+    width: 100%;
+    position: absolute;
+    top: 0;
+  }
 }

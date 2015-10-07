@@ -1,7 +1,7 @@
 <div class="list-group-item">
   <%= link_to instagram_media_path(media.id), class: 'link-gentle' do %>
     <div class="row-action-primary">
-      <%= image_tag(media.images.thumbnail.url, class: 'entry-list-thumbnail') %>
+      <%= image_tag(media.images.thumbnail.url) %>
     </div>
     <div class="row-content">
       <h4 class="list-group-item-heading"><%= media.caption.text %></h4>

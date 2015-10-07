@@ -7,7 +7,8 @@
     <%= render partial: 'users/follow_form' %>
   </div>
 
-  <div class="col-md-12">
-    <%= render partial: 'entries/calendar', locals: {entries: entries_calendar(@entries)} %>
-  </div>
+</div>
+
+<div class="row">
+  <%= render partial: 'entries/calendar', locals: {entries: entries_calendar(@entries)} %>
 </div>

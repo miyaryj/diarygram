@@ -2,7 +2,7 @@
   <div class="col-md-10 col-sm-10 col-xs-10 list-group user-info">
     <div class="list-group-item">
       <div class="row-action-primary">
-        <%= image_tag(@entry.user.profile_image_url, size: '30x30') %>
+        <%= image_tag @entry.user.profile_image_url, class: 'img-rounded' %>
       </div>
       <div class="row-content">
         <h4 class="list-group-item-heading">
@@ -25,8 +25,8 @@
       <li><%= link_to 'Delete', entry_path(@entry.id), method: :delete, data: { confirm: 'Are you sure?' } %></li>
     </ul>
   </div>
+
+  <p class="col-md-12 col-sm-12 col-xs-12 h4 entry-title"><%= @entry.text %></p>
+
+  <%= image_tag @entry.image_url, class: 'img-responsive' %>
 </div>
-
-<p class="h4 entry-title"><%= @entry.text %></p>
-
-<%= image_tag @entry.image_url, class: 'img-responsive' %>

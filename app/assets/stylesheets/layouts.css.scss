@@ -53,6 +53,7 @@ a {
   &:hover {
     color: $color-text-primary;
     opacity: 0.8;
+    text-decoration: none;
   }
 
   &:visited {

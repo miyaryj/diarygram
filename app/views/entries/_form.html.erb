@@ -20,16 +20,39 @@
     ) %>
   </div>
 
+  <%= f.hidden_field :user_id, value: current_user.id %>
+
   <div class="list-group">
-    <%= render partial: 'instagram/medias/media', locals: { media: @instagram_media } %>
+    <div class="list-group-item">
+      <% if @instagram_media %>
+        <div class="row-action-primary">
+          <%= image_tag @instagram_media.images.thumbnail.url %>
+        </div>
+        <% text = @instagram_media.caption.text if @instagram_media && @instagram_media.caption %>
+        <%= f.hidden_field :instagram_media_id, value: @instagram_media_id %>
+        <%= f.hidden_field :image_url, value: @instagram_media.images.standard_resolution.url %>
+        <%= f.hidden_field :thumbnail_url, value: @instagram_media.images.thumbnail.url %>
+        <%= f.hidden_field :media_url, value: @instagram_media.link %>
+      <% else %>
+        <div class="row-action-primary">
+          <%= image_tag 'default-placeholder-300x300.png' %>
+        </div>
+        <div class="row-content">
+          <%= link_to 'Pick Image from Instagram',
+            instagram_medias_path,
+            class: 'btn btn-default btn-sm btn-raised' %>
+        </div>
+      <% end %>
+    </div>
   </div>
 
-  <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.hidden_field :instagram_media_id, value: @instagram_media_id %>
-  <%= f.hidden_field :image_url, value: @instagram_media.images.standard_resolution.url %>
-  <%= f.hidden_field :thumbnail_url, value: @instagram_media.images.thumbnail.url %>
-  <%= f.hidden_field :media_url, value: @instagram_media.link %>
-  <%= f.hidden_field :text, value: @instagram_media.caption.text if @instagram_media.caption %>
+  <div class="field">
+    <%= f.label :text %><br>
+    <%= f.text_field(:text,
+      value: text,
+      class: 'form-control'
+    ) %>
+  </div>
 
   <div class="actions">
     <%= f.submit class: 'btn btn-submit btn-raised pull-right' %>

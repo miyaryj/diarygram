@@ -13,9 +13,11 @@
     <%= link_to entry_path(entry.id), class: 'link-gentle' do %>
       <h4 class="list-group-item-heading link-gentle"><%= entry.text %></h4>
 
-      <div class="entry-list-image">
-        <%= image_tag entry.image_url, class: 'img-responsive link-gentle' %>
-      </div>
+      <% if entry.image_url %>
+        <div class="entry-list-image">
+          <%= image_tag entry.image_url, class: 'img-responsive link-gentle' %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>

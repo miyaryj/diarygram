@@ -29,6 +29,7 @@ class EntriesController < ApplicationController
     if params[:instagram_media_id].present?
       @instagram_media_id = params[:instagram_media_id]
       @instagram_media = instagram_media(@instagram_media_id)
+      @text = @instagram_media.caption.text if @instagram_media.caption
     end
 
     if params[:date].present?
@@ -53,7 +54,13 @@ class EntriesController < ApplicationController
     else
       @instagram_media_id = @entry.instagram_media_id
     end
-    @instagram_media = instagram_media(@instagram_media_id)
+
+    if @instagram_media_id
+      @instagram_media = instagram_media(@instagram_media_id)
+      @text = @instagram_media.caption.text if @instagram_media.caption
+    else
+      @text = @entry.text
+    end
   end
 
   # POST /entries

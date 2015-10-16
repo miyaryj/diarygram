@@ -1,7 +1,11 @@
 <div class="dropdown">
   <% entries.each do |entry| %>
-    <%= link_to entry_path(entry.id) do %>
-      <%= image_tag(entry.thumbnail_url, class: 'img-responsive') %>
+    <%= link_to entry_path(entry.id), class: 'link-gentle' do %>
+      <% if entry.thumbnail_url %>
+        <%= image_tag(entry.thumbnail_url, class: 'img-responsive link-gentle') %>
+      <% else %>
+        <%= image_tag('bg_empty.png', class: 'img-responsive link-gentle calendar-text') %>
+      <% end %>
       <p class="calendar-date"><%= date.day %></p>
     <% end %>
   <% end %>

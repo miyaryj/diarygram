@@ -31,8 +31,12 @@ table.calendar-table {
   color: rgba(255, 255, 255, 0.8);
 }
 
-.calendar-empty:hover {
-  opacity: 0.8;
+.calendar-text {
+  background-color: #FF8A65;
+}
+
+.calendar-empty {
+  background-color: #ECEFF1;
 }
 
 i.menu-icon {

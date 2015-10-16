@@ -28,7 +28,6 @@
         <div class="row-action-primary">
           <%= image_tag @instagram_media.images.thumbnail.url %>
         </div>
-        <% text = @instagram_media.caption.text if @instagram_media && @instagram_media.caption %>
         <%= f.hidden_field :instagram_media_id, value: @instagram_media_id %>
         <%= f.hidden_field :image_url, value: @instagram_media.images.standard_resolution.url %>
         <%= f.hidden_field :thumbnail_url, value: @instagram_media.images.thumbnail.url %>
@@ -49,7 +48,7 @@
   <div class="field">
     <%= f.label :text %><br>
     <%= f.text_field(:text,
-      value: text,
+      value: @text,
       class: 'form-control'
     ) %>
   </div>

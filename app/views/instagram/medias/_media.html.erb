@@ -4,7 +4,11 @@
       <%= image_tag(media.images.thumbnail.url) %>
     </div>
     <div class="row-content">
-      <h4 class="list-group-item-heading"><%= media.caption.text %></h4>
+      <h4 class="list-group-item-heading">
+        <% if media.caption %>
+          <%= media.caption.text %>
+        <% end %>
+      </h4>
       <p class="list-group-item-text"><%= Time.at(media.created_time.to_i).to_s %></p>
     </div>
   <% end %>

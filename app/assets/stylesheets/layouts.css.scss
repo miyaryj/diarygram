@@ -47,6 +47,17 @@ a {
   }
 }
 
+.dropdown-menu {
+  & > li > a {
+    color: $color-text-primary;
+
+    &:hover {
+      color: $color-text-primary;
+      opacity: 0.8;
+    }
+  }
+}
+
 .link-gentle {
   color: $color-text-primary;
 

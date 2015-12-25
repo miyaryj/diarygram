@@ -19,7 +19,7 @@
     <%= link_to('#', class: 'dropdown-toggle', data: {toggle:'dropdown'}) do %>
       <i class="mdi-navigation-more-vert pull-right menu-icon link-gentle"></i>
     <% end %>
-    <ul class="dropdown-menu">
+    <ul class="dropdown-menu dropdown-menu-right">
       <li><%= link_to 'View in Instagram', @entry.media_url  %></li>
       <li><%= link_to 'Edit', edit_entry_path(@entry.id) %></li>
       <li><%= link_to 'Delete', entry_path(@entry.id), method: :delete, data: { confirm: 'Are you sure?' } %></li>

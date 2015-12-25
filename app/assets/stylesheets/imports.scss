@@ -1,3 +1,6 @@
 @import "bootstrap";
-@import "bootstrap-material-design/dist/css/material-fullpalette";
-@import "bootstrap-material-design/dist/css/ripples";
+
+@import "bootstrap-material-design/sass/_colors";
+$brand-primary: $deep-orange-400;
+@import "bootstrap-material-design/sass/bootstrap-material-design";
+@import "bootstrap-material-design/sass/ripples";

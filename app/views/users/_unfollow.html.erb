@@ -1,4 +1,4 @@
 <%= form_for(current_user.users_followed_users.find_by(followed_id: @user.id),
   html: { method: :delete }, remote: true) do |f| %>
-  <%= f.submit "Following", class: "btn btn-default btn-raised btn-material-deep-orange-400 pull-right" %>
+  <%= f.submit "Following", class: "btn btn-primary btn-raised pull-right" %>
 <% end %>

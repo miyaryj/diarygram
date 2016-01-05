@@ -19,10 +19,7 @@ class EntriesController < ApplicationController
 
   # GET /entries/new
   def new
-    unless params[:instagram_media_id].present?
-      store_entry_action(controller: '/entries', action: :new, date: params[:date])
-      #return redirect_to(instagram_medias_path)
-    end
+    store_entry_action(controller: '/entries', action: :new, date: params[:date])
 
     @entry = Entry.new
 
@@ -43,6 +40,13 @@ class EntriesController < ApplicationController
 
   # GET /entries/1/edit
   def edit
+    if @entry
+      date = @entry.date
+    else
+      date = params[:date]
+    end
+    store_entry_action(controller: '/entries', action: :edit, id: params[:id], date: date)
+
     if params[:date].present?
       @date = Date.parse(params[:date])
     else
@@ -104,4 +108,5 @@ class EntriesController < ApplicationController
     params.require(:entry)
       .permit(:text, :date, :user_id, :image_url, :thumbnail_url, :media_url, :instagram_media_id)
   end
+
 end

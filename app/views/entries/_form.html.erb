@@ -28,6 +28,11 @@
         <div class="row-action-primary">
           <%= image_tag @instagram_media.images.thumbnail.url %>
         </div>
+        <div class="row-content">
+          <%= link_to 'Pick Another Image from Instagram',
+            instagram_medias_path,
+            class: 'btn btn-primary btn-sm' %>
+        </div>
         <%= f.hidden_field :instagram_media_id, value: @instagram_media_id %>
         <%= f.hidden_field :image_url, value: @instagram_media.images.standard_resolution.url %>
         <%= f.hidden_field :thumbnail_url, value: @instagram_media.images.thumbnail.url %>

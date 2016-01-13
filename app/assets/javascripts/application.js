@@ -18,3 +18,5 @@
 //= require bootstrap-material-design/dist/js/ripples
 //= require bootstrap-datepicker
 //= require_tree .
+
+Turbolinks.enableProgressBar()

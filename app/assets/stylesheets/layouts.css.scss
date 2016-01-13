@@ -266,3 +266,7 @@ table {
 .row-action-primary {
   float: left;
 }
+
+html.turbolinks-progress-bar::before {
+  background-color: $color-accent !important;
+}

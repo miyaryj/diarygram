@@ -4,6 +4,7 @@ include InstagramHelper
 class EntriesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_entry, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :clear_entry_action, only: [:new, :edit]
 
   # GET /entries
@@ -107,6 +108,10 @@ class EntriesController < ApplicationController
   def entry_params
     params.require(:entry)
       .permit(:text, :date, :user_id, :image_url, :thumbnail_url, :media_url, :instagram_media_id)
+  end
+
+  def correct_user
+    redirect_to(root_url) unless @entry.user == current_user
   end
 
 end
